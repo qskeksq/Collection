@@ -3,8 +3,36 @@
 
 ## 1. List 인터페이스
 
-- 순차 구조이기 때문에 항목의 위치를 찾아 접근하는 것은 좋으나 재배치를 도와주는 것일 뿐 빈번한 삭제, 추가는 좋지 않다.
+#### ArrayList - 순차 구조 방식
+
+- ##### 언제 사용하는가?
+순차 구조이기 때문에 항목의 위치를 찾아 접근하는 것은 좋으나 재배치를 도와주는 것일 뿐 빈번한 삭제, 추가는 좋지 않다.
 빈번한 추가, 삭제는 LinkedList 를 사용하는 것이 좋다. 다만 끝에 삭제하고 추가하는 것은 순차구조방식이 빠르다.
+
+- ##### 반복자(iterator 패턴) 사용
+  1. 객체 내부 표현 방식을 모르고도 객체 집합의 각 항목에 접근할 수 있다.
+  2. 객체 집합을 순회하는 다양한 방법을 지원한다.
+  3. 전체 객체를 대상으로 '한 번씩' 반복해서 가져오는 반복자를 리턴한다.
+
+
+#### Vector - ThreadSafe(Synchronized) ArrayList
+
+- ##### 언제 사용하는가?
+동기화된 ArrayList 를 사용할 경우
+
+- ##### 구현 방식
+List<E> list = new Vector<>();
+
+#### LinkedList - 연결 구조 방식
+
+- ##### 언제 사용하는가?
+ArrayList 인데 중간에서 추가와 삭제가 빈번하게 발생하는 경우. 다만 순차 구조나 이진검색보다 검색에 오래 걸린다.
+
+- ##### 구현 방식
+List<E> list = new LinkedList<>();
+
+- ##### 결론
+위치를 이용하여 검색하는 경우가 많으면 ArrayList, 항목의 삽입과 삭제가 많다면 LinkedList 사용
 
 #### Stack
 ```java
@@ -16,6 +44,20 @@ public static void stack() {
 
 	while(!stack.isEmpty()) {
 		System.out.println(stack.pop().name);
+	}
+}
+```
+
+#### Queue
+```java
+public static void queue() {
+	Queue<Fruit> queue = new LinkedList<>();
+	queue.add(new Fruit("홍시", 10));
+	queue.add(new Fruit("사과", 11));
+	queue.add(new Fruit("포도", 12));
+
+	while(!queue.isEmpty()) {
+		System.out.println(queue.poll().name);
 	}
 }
 ```
