@@ -1,8 +1,6 @@
 # Collection
 자바 컬렉션 프레임워크 이해
 
-[개념](https://github.com/qskeksq/Collection/blob/master/README2.md)
-
 ## 1. List 인터페이스
 
 - 순차 구조이기 때문에 항목의 위치를 찾아 접근하는 것은 좋으나 재배치를 도와주는 것일 뿐 빈번한 삭제, 추가는 좋지 않다.
